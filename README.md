@@ -1,4 +1,4 @@
-chat.why.academy
-================
+arena.why.academy
+=================
 
-The chat server for why.academy
+The challenge game to learn languagues
