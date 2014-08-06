@@ -31,6 +31,7 @@ public class ServiceHandler
     CopyOnWriteArrayList<User> users = new CopyOnWriteArrayList<User>();
     Map<String,List<SocketIOClient>> clientsOfUser = new HashMap<String, List<SocketIOClient>>();
     Map<String,List<String>> usersInRoom = new HashMap<String, List<String>>();
+    Queue<JsonObject> messagesInGeneral = new ArrayDeque<JsonObject>();
 
     @OnEvent("log in")
     public void onEventLogInHandler(SocketIOClient client, String data, AckRequest ackRequest)
@@ -98,8 +99,14 @@ public class ServiceHandler
         messageObject.addProperty("message",message);
         DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
         Date now = new Date();
-        messageObject.addProperty("time",dateFormat.format(now));
-        jsonObjectData.add("message",messageObject);
+        messageObject.addProperty("time", dateFormat.format(now));
+        jsonObjectData.add("message", messageObject);
+        if (roomID.equals("1"))
+        {
+            messagesInGeneral.add(jsonObjectData);
+            if (messagesInGeneral.size()>100)
+                messagesInGeneral.remove();
+        }
 
         server.getRoomOperations(roomID).sendEvent("message", jsonObjectData.toString());
     }
@@ -112,7 +119,15 @@ public class ServiceHandler
         String userID = jsonObjectData.getAsJsonObject("user").get("id").getAsString();
         String roomID = jsonObjectData.getAsJsonObject("room").get("room_id").getAsString();
         joinUserToRoom(userID, roomID);
-
+        if (roomID.equals("1"))
+        {
+            System.out.println(messagesInGeneral.toString());
+            //server.getRoomOperations(roomID).sendEvent("join", jsonObjectData.toString(),messagesInGeneral.toString());
+            for(JsonObject message:messagesInGeneral)
+            {
+                client.sendEvent("message", message.toString());
+            }
+        }
         server.getRoomOperations(roomID).sendEvent("join", jsonObjectData.toString());
 //        boolean isContain = false;
 //        Room room = new Room(roomName);
