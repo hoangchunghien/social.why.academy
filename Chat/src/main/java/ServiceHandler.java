@@ -171,7 +171,7 @@ public class ServiceHandler
                 {
                     if (u.getId().equals(userID))
                     {
-                        server.getBroadcastOperations().sendEvent("part", u);
+                        server.getBroadcastOperations().sendEvent("user disconnect", u);
                         users.remove(u);
                     }
                 }
