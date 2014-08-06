@@ -1,0 +1,46 @@
+Manifest-Version: 1.0
+Export-Package: io.netty.handler.codec.http;uses:="io.netty.buffer,io.
+ netty.channel,io.netty.channel.embedded,io.netty.handler.codec,io.net
+ ty.handler.codec.compression,io.netty.handler.stream,io.netty.util";v
+ ersion="4.0.19.Final",io.netty.handler.codec.http.cors;uses:="io.nett
+ y.channel,io.netty.handler.codec.http";version="4.0.19.Final",io.nett
+ y.handler.codec.http.multipart;uses:="io.netty.buffer,io.netty.channe
+ l,io.netty.handler.codec,io.netty.handler.codec.http,io.netty.handler
+ .stream,io.netty.util";version="4.0.19.Final",io.netty.handler.codec.
+ http.websocketx;uses:="io.netty.buffer,io.netty.channel,io.netty.hand
+ ler.codec,io.netty.handler.codec.http,io.netty.util,io.netty.util.int
+ ernal.logging";version="4.0.19.Final",io.netty.handler.codec.rtsp;use
+ s:="io.netty.buffer,io.netty.channel,io.netty.handler.codec.http";ver
+ sion="4.0.19.Final",io.netty.handler.codec.spdy;uses:="io.netty.buffe
+ r,io.netty.channel,io.netty.handler.codec,io.netty.handler.codec.http
+ ,io.netty.util,javax.net.ssl";version="4.0.19.Final"
+Implementation-Title: Netty/Codec/HTTP
+Implementation-Version: 4.0.19.Final
+Built-By: norman
+Tool: Bnd-2.1.0.20130426-122213
+Bundle-Name: Netty/Codec/HTTP
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: The Netty Project
+Implementation-Vendor: The Netty Project
+Implementation-Vendor-Id: io.netty
+Bundle-Version: 4.0.19.Final
+Build-Jdk: 1.7.0_51
+Bnd-LastModified: 1398865833927
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
+Bundle-Description: Netty is an asynchronous event-driven network appl
+ ication framework for     rapid development of maintainable high perf
+ ormance protocol servers and    clients.
+Bundle-SymbolicName: io.netty.codec-http
+Bundle-DocURL: http://netty.io/
+Import-Package: com.jcraft.jzlib;resolution:=optional,io.netty.buffer;
+ version="[4.0,5)",io.netty.channel;version="[4.0,5)",io.netty.channel
+ .embedded;version="[4.0,5)",io.netty.handler.codec;version="[4.0,5)",
+ io.netty.handler.codec.base64;version="[4.0,5)",io.netty.handler.code
+ c.compression;version="[4.0,5)",io.netty.handler.ssl;version="[4.0,5)
+ ",io.netty.handler.stream;version="[4.0,5)",io.netty.util;version="[4
+ .0,5)",io.netty.util.concurrent;version="[4.0,5)",io.netty.util.inter
+ nal;version="[4.0,5)",io.netty.util.internal.logging;version="[4.0,5)
+ ",javax.net.ssl,sun.nio.ch;resolution:=optional
+Archiver-Version: Plexus Archiver
+
