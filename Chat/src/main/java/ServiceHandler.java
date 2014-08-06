@@ -1,6 +1,7 @@
 import com.corundumstudio.socketio.AckRequest;
 import com.corundumstudio.socketio.SocketIOClient;
 import com.corundumstudio.socketio.SocketIOServer;
+import com.corundumstudio.socketio.annotation.OnConnect;
 import com.corundumstudio.socketio.annotation.OnDisconnect;
 import com.corundumstudio.socketio.annotation.OnEvent;
 import com.google.gson.Gson;
@@ -30,10 +31,10 @@ public class ServiceHandler
     CopyOnWriteArrayList<User> users = new CopyOnWriteArrayList<User>();
     Map<String,List<SocketIOClient>> clientsOfUser = new HashMap<String, List<SocketIOClient>>();
     Map<String,List<String>> usersInRoom = new HashMap<String, List<String>>();
+
     @OnEvent("log in")
     public void onEventLogInHandler(SocketIOClient client, String data, AckRequest ackRequest)
     {
-
         System.out.println(data);
         client.sendEvent("log in",users);
         Gson gson = new Gson();
@@ -46,7 +47,7 @@ public class ServiceHandler
         //idClients.put(username,client.getSessionId());
         //users.add(new User(username));
         //server.getBroadcastOperations().sendEvent("log in",users);
-        server.getBroadcastOperations().sendEvent("new user login",user);
+
         System.out.println(gson.toJson(users));
     }
 
@@ -76,7 +77,10 @@ public class ServiceHandler
             }
         }
         if (!hasAlready)
+        {
+            server.getBroadcastOperations().sendEvent("new user login",user);
             users.add(user);
+        }
     }
 
     @OnEvent("send")
