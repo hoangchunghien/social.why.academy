@@ -11,6 +11,7 @@ task wrapper(type: Wrapper, description: 'Create Gradle wrapper') {
 }
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
+    //compile 'com.google.code.gson:gson:2.2.4'
 }
 subprojects {
     apply plugin: 'java'
@@ -29,7 +30,7 @@ subprojects {
     sourceSets.test.java.srcDirs = ["src/test/java"]
 
     dependencies {
-
+        //compile 'com.google.code.gson:gson:2.2.4'
     }
     task "initProject"(description: 'Initialize project directory structure') {
         ['java', 'resources'].each {
@@ -52,6 +53,8 @@ project(':Chat') {
         compile 'com.corundumstudio.socketio:netty-socketio:1.7.1'
         compile 'org.slf4j:slf4j-simple:1.7.6'
         compile 'com.google.code.gson:gson:2.2.4'
+        compile 'org.apache.httpcomponents:httpclient:4.3.5'
+        compile 'org.apache.httpcomponents:httpasyncclient:4.0'
 
     }
 

@@ -17,6 +17,7 @@ public class Server
         Configuration config = new Configuration();
         //config.setHostname("localhost");
         config.setPort(8080);
+        config.setOrigin("*");
         //config.setKeyStorePassword("test1234");
         //InputStream stream = Server.class.getResourceAsStream("/keystore.jks");
         //config.setKeyStore(stream);
