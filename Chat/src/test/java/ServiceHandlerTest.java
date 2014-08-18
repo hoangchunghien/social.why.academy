@@ -54,7 +54,7 @@ public class ServiceHandlerTest
     @Test
     public void getMessagesDirectChatFromServerTest() throws Exception
     {
-        String result = serviceHandler.getMessagesDirectChatFromServer("1","2");
+        String result = serviceHandler.getMessagesDirectChatFromServer("201","156");
         System.out.println(result);
     }
 }
